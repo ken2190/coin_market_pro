@@ -13,16 +13,48 @@ gem 'coin_market_pro'
 ```
 
 And then execute:
-
-    $ bundle
-
+```ruby
+$ bundle
+```
 Or install it yourself as:
-
-    $ gem install coin_market_pro
-
+```ruby
+$ gem install coin_market_pro
+```
 ## Usage
 
-TODO: Write usage instructions here
+### Initialize CoinMarketPro
+
+Client Api Key defaults to `COIN_MARKET_PRO_API_KEY` ENV. Override the client with `api_key` param.
+
+```ruby
+  # Rails Example
+  #
+  # config/initializers/coin_market_pro.rb
+  module CoinMarketPro
+    Api ||= CoinMarketPro::Client::Base.new(api_key: 'Coinbase-Pro-Api-Key', logger: Rails.logger)
+  end
+```
+
+### Response Format
+
+Response object returned as hash with keys: `status`, `code`, `headers`, `body`
+
+```ruby
+
+```
+
+### Endpoints
+
+#### Cryptocurrency
+
+##### Info
+
+```ruby
+cmc = CoinMarketPro::Client::Base.new
+
+# At least one "id" or "symbol" is required as Array.
+cmc.info(id: [1], symbol: nil)
+```
 
 ## Development
 

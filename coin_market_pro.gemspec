@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.version       = CoinMarketPro::VERSION
   spec.authors       = ['snogrammer']
 
-  spec.summary       = 'CoinMarketCap Pro Api wrapper'
+  spec.summary       = 'CoinMarketCap Pro Api Ruby wrapper'
   spec.homepage      = 'https://gitlab.com/snogrammer/coin_market_pro'
   spec.license       = 'MIT'
 
@@ -36,7 +36,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rest-client',    '~> 2.0'
 
   spec.add_development_dependency 'bundler', '~> 1.16'
+  spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake', '~> 12.3'
   spec.add_development_dependency 'rspec', '~> 3.8'
   spec.add_development_dependency 'simplecov', '~> 0.16'
+  spec.add_development_dependency 'webmock', '~> 3.4'
 end

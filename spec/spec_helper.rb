@@ -2,6 +2,11 @@
 
 require 'bundler/setup'
 require 'coin_market_pro'
+require 'simplecov'
+require 'webmock/rspec'
+require 'pry'
+
+SimpleCov.start
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

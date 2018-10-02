@@ -1,0 +1,46 @@
+{
+  "data": {
+    "BTC": {
+      "id": 1,
+      "name": "Bitcoin",
+      "symbol": "BTC",
+      "category": "coin",
+      "slug": "bitcoin",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+      "tags": [
+        "mineable"
+      ],
+      "urls": {
+        "website": [
+          "https://bitcoin.org/"
+        ],
+        "explorer": [
+          "https://blockchain.info/",
+          "https://live.blockcypher.com/btc/",
+          "https://blockchair.com/bitcoin/blocks"
+        ],
+        "source_code": [
+          "https://github.com/bitcoin/"
+        ],
+        "message_board": [
+          "https://bitcointalk.org"
+        ],
+        "chat": [],
+        "announcement": [],
+        "reddit": [
+          "https://reddit.com/r/bitcoin"
+        ],
+        "twitter": [
+          "https://twitter.com/Bitcoin"
+        ]
+      }
+    }
+  },
+  "status": {
+    "timestamp": "2018-06-02T22:51:28.209Z",
+    "error_code": 0,
+    "error_message": "",
+    "elapsed": 10,
+    "credit_count": 1
+  }
+}
