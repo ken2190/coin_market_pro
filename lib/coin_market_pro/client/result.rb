@@ -22,7 +22,7 @@ module CoinMarketPro
 
       def initialize(status, response)
         @raw = raw_parse(response.body)
-        @status = @raw[:status].merge(result: status)
+        @status = @raw[:status]&.merge(result: status) || { result: status }
         @code = response.code
         @body = @raw[:data]
         @headers = response.headers # e.g. "Content-Type" will become :content_type.

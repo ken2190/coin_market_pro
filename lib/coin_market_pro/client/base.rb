@@ -5,7 +5,9 @@ require 'active_support/core_ext/object'
 require 'rest_client'
 
 require_relative './result'
+
 require_relative '../endpoint/base'
+require_relative '../endpoint/cryptocurrency'
 
 module CoinMarketPro
   module Client
@@ -16,9 +18,7 @@ module CoinMarketPro
     end
 
     class Base
-      include CoinMarketPro::Endpoint::CryptoCurrency
-
-      attr_reader :host, :api_key, :logger
+      attr_reader :host, :api_key, :logger, :cryptocurrency
 
       API_DOMAIN = 'https://pro-api.coinmarketcap.com'
       API_VERSION = 'v1'
@@ -30,6 +30,9 @@ module CoinMarketPro
         @api_key = api_key
         @logger = logger
         @timeout = timeout
+
+        # services
+        @cryptocurrency = Endpoint::Cryptocurrency.new(client: self, logger: @logger)
       end
 
       # GET request

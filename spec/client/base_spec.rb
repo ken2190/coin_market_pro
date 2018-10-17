@@ -20,6 +20,10 @@ RSpec.describe CoinMarketPro::Client::Base do # rubocop:disable Metrics/BlockLen
     it 'has default logger' do
       expect(subject.logger).to be_a(Logger)
     end
+
+    it 'raises error when api_key missing' do
+      expect { described_class.new }.to raise_error(KeyError, 'key not found: "COIN_MARKET_PRO_API_KEY"')
+    end
   end
 
   describe '.default_headers' do

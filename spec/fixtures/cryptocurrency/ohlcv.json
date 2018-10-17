@@ -1,0 +1,44 @@
+{
+  "data": {
+    "id": 1,
+    "name": "Bitcoin",
+    "symbol": "BTC",
+    "quotes": [
+      {
+        "time_open": "2018-04-15T00:00:00.000Z",
+        "time_close": "2018-04-15T23:59:59.999Z",
+        "quote": {
+          "USD": {
+            "open": 7999.33,
+            "high": 8338.42,
+            "low": 7999.33,
+            "close": 8329.11,
+            "volume": 5244480000,
+            "timestamp": "2018-06-17T21:37:25.078Z"
+          }
+        }
+      },
+      {
+        "time_open": "2018-04-22T00:00:00.000Z",
+        "time_close": "2018-04-22T23:59:59.999Z",
+        "quote": {
+          "USD": {
+            "open": 8925.06,
+            "high": 9001.64,
+            "low": 8779.61,
+            "close": 8802.46,
+            "volume": 6629900000,
+            "timestamp": "2018-06-17T21:37:25.078Z"
+          }
+        }
+      }
+    ]
+  },
+  "status": {
+    "timestamp": "2018-06-02T22:51:28.209Z",
+    "error_code": 0,
+    "error_message": "",
+    "elapsed": 10,
+    "credit_count": 1
+  }
+}
