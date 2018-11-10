@@ -8,8 +8,6 @@ require 'pry'
 
 SimpleCov.start
 
-ENV['LOG_LEVEL'] = 'ERROR'
-
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = '.rspec_status'
@@ -20,4 +18,12 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+end
+
+# Return fixture relative to './spec/fixtures'
+def fixture(file_name, json: false, symbolize: false)
+  file = File.read("./spec/fixtures/#{file_name}")
+  return file unless json
+
+  JSON.parse(file, symbolize_names: symbolize)
 end

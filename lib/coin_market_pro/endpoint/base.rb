@@ -10,26 +10,37 @@ module CoinMarketPro
         @logger = logger
       end
 
-      private
+      protected
 
       # @param args [Hash]
       # @return [Boolean]
       # @raise [ArgumentError]
       def valid_params?(args)
         raise ArgumentError.new('At least one "id" or "symbol" is required.') if args[:id].blank? && args[:symbol].blank?
+
         true
       end
 
-      def required_params(**params)
-        %i[id symbol].each { |x| params[x] = standardize_params(params[x]) }
+      private
+
+      # Convert/Standardize base params
+      # @param params [Hash]
+      # @return [Hash]
+      def convert_params(**params)
+        return {} if params.blank?
+
+        params.each { |k, v| params[k] = standardize_value(v) }
         params
       end
 
-      def standardize_params(param)
+      # Standardize request params
+      def standardize_value(param)
         if param.is_a?(Array)
           param.join(',')
         elsif param.is_a?(String)
           param.strip
+        else
+          param
         end
       end
     end

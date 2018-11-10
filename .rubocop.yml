@@ -1,7 +1,5 @@
 AllCops:
   TargetRubyVersion: 2.5
-  Exclude:
-    - 'db/schema.rb'
 Documentation:
   Enabled: false
 LineLength:
@@ -14,3 +12,6 @@ Metrics/MethodLength:
   Max: 25
 Lint/Debugger:
   Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'

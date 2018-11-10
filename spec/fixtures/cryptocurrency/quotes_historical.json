@@ -1,0 +1,38 @@
+{
+  "data": {
+    "id": 1,
+    "name": "Bitcoin",
+    "symbol": "BTC",
+    "quotes": [
+      {
+        "timestamp": "2018-06-22T19:29:37.000Z",
+        "quote": {
+          "USD": {
+            "price": 6242.29,
+            "volume_24h": 4681670000,
+            "market_cap": 106800038746.48,
+            "last_updated": "2018-06-22T20:15:17.651Z"
+          }
+        }
+      },
+      {
+        "timestamp": "2018-06-22T19:34:33.000Z",
+        "quote": {
+          "USD": {
+            "price": 6242.82,
+            "volume_24h": 4682330000,
+            "market_cap": 106809106575.84,
+            "last_updated": "2018-06-22T20:15:17.651Z"
+          }
+        }
+      }
+    ]
+  },
+  "status": {
+    "timestamp": "2018-06-02T22:51:28.209Z",
+    "error_code": 0,
+    "error_message": "",
+    "elapsed": 10,
+    "credit_count": 1
+  }
+}
