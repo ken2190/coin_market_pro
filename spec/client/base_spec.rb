@@ -9,20 +9,38 @@ RSpec.describe CoinMarketPro::Client::Base do # rubocop:disable Metrics/BlockLen
   let(:subject) { described_class.new(api_key: api_key) }
 
   describe '.configuration' do
-    it 'has host' do
+    it 'returns host' do
       expect(subject.host).to eq(host)
     end
 
-    it 'has api_key' do
+    it 'returns api_key' do
       expect(subject.api_key).to eq(api_key)
     end
 
-    it 'has default logger' do
+    it 'returns default logger' do
       expect(subject.logger).to be_a(Logger)
     end
 
     it 'raises error when api_key missing' do
       expect { described_class.new }.to raise_error(KeyError, 'key not found: "COIN_MARKET_PRO_API_KEY"')
+    end
+  end
+
+  describe 'services' do
+    it '.cryptocurrency' do
+      expect(subject.cryptocurrency).to be_a(CoinMarketPro::Endpoint::Cryptocurrency)
+    end
+
+    it '.exchange' do
+      expect(subject.exchange).to be_a(CoinMarketPro::Endpoint::Exchange)
+    end
+
+    it '.global_metrics' do
+      expect(subject.global_metrics).to be_a(CoinMarketPro::Endpoint::GlobalMetrics)
+    end
+
+    it '.tools' do
+      expect(subject.tools).to be_a(CoinMarketPro::Endpoint::Tools)
     end
   end
 

@@ -5,9 +5,7 @@ require 'active_support/core_ext/object'
 require 'rest_client'
 
 require_relative './result'
-
-require_relative '../endpoint/base'
-require_relative '../endpoint/cryptocurrency'
+Dir['./lib/coin_market_pro/endpoint/**/*.rb'].each { |f| require f }
 
 module CoinMarketPro
   module Client
@@ -18,7 +16,7 @@ module CoinMarketPro
     end
 
     class Base
-      attr_reader :host, :api_key, :logger, :cryptocurrency
+      attr_reader :host, :api_key, :logger, :cryptocurrency, :exchange, :global_metrics, :tools
 
       API_DOMAIN = 'https://pro-api.coinmarketcap.com'
       API_VERSION = 'v1'
@@ -33,6 +31,9 @@ module CoinMarketPro
 
         # services
         @cryptocurrency = Endpoint::Cryptocurrency.new(client: self, logger: @logger)
+        @exchange = Endpoint::Exchange.new(client: self, logger: @logger)
+        @global_metrics = Endpoint::GlobalMetrics.new(client: self, logger: @logger)
+        @tools = Endpoint::Tools.new(client: self, logger: @logger)
       end
 
       # GET request
@@ -116,6 +117,7 @@ module CoinMarketPro
       # @return [Boolean]
       def success?(status_code = 0)
         return true if status_code.in?(200..299)
+
         false
       end
     end
