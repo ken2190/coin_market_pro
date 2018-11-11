@@ -4,8 +4,12 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 TODO: Delete this and the text above, and describe your gem
 
-Available Endpoints:
+## Available Endpoints:
+
 * [Cryptocurrency](#### Cryptocurrency)
+* [Exchange](#### Exchange)
+* [Global Metrics](#### Global Metrics)
+* [Tools](#### Global Metrics)
 
 ## Installation
 
@@ -20,6 +24,12 @@ Or install it yourself as:
 
 `$ gem install coin_market_pro`
 
+## Environment Variables
+
+| Variable                  |  Description          | Default   |
+| --------------------------|:----------------------|:---------:|
+| `COIN_MARKET_PRO_API_KEY` | CoinMarketCap API Key | -         |
+
 ## Usage
 
 ### Initialize CoinMarketPro
@@ -33,6 +43,9 @@ Client Api Key defaults to `COIN_MARKET_PRO_API_KEY` ENV. Override the client wi
   module CoinMarketPro
     Api ||= CoinMarketPro.new(api_key: 'Coinbase-Pro-Api-Key', logger: Rails.logger)
   end
+
+  # Ruby
+  client = CoinMarketPro.new(api_key: 'Coinbase-Pro-Api-Key')
 ```
 
 ### [Common Errors](https://pro.coinmarketcap.com/api/v1#section/Errors-and-Rate-Limits)
@@ -47,10 +60,12 @@ Client Api Key defaults to `COIN_MARKET_PRO_API_KEY` ENV. Override the client wi
 
 ### Response Format
 
-Response object returned as hash with keys: `status`, `code`, `headers`, `body`, `raw`
+Response object returned as hash with keys: `status`, `code`, `headers`, `body`, `raw`. For consistency, `body` will always be returned as an array.
 
 ```ruby
-CoinMarketPro::Api.cryptocurrency.info(id: [1])
+# Using `client` defined from above
+
+client.cryptocurrency.info(id: [1])
 # => #<CoinMarketPro::Client::Result:0x00007f9045657d18
 #  @body=
 #   [{:urls=>
@@ -117,7 +132,7 @@ CoinMarketPro::Api.cryptocurrency.info(id: [1])
 
 ### Endpoints
 
-#### Cryptocurrency
+#### [Cryptocurrency](https://pro.coinmarketcap.com/api/v1#tag/cryptocurrency)
 
 ##### [Info/Metadata](https://pro.coinmarketcap.com/api/v1#operation/getV1CryptocurrencyInfo)
 
@@ -134,7 +149,9 @@ Returns all static metadata for one or more cryptocurrencies including name, sym
   - Enterprise
 
 ```ruby
-result = CoinMarketPro::Api.cryptocurrency.info(id: [1]) # cmc.info(symbol: ['BTC'])
+# Using `client` defined from above
+
+result = client.cryptocurrency.info(id: [1]) # cmc.info(symbol: ['BTC'])
 result.body
 
 # => [{:urls=>
@@ -169,7 +186,7 @@ Returns a paginated list of all cryptocurrencies by CoinMarketCap ID.
   - Enterprise
 
 ```ruby
-CoinMarketPro::Api.cryptocurrency.map(symbol: ['BTC']).body
+client.cryptocurrency.map(symbol: ['BTC']).body
 
 # => [{:id=>1,
 #   :name=>"Bitcoin",
@@ -200,7 +217,7 @@ Get a paginated list of all cryptocurrencies with latest market data.
   - Enterprise
 
   ```ruby
-  CoinMarketPro::Api.cryptocurrency.listings(symbol: ['BTC']).body
+  client.cryptocurrency.listings(symbol: ['BTC']).body
 
    # => [{:id=>1,
    #  :name=>"Bitcoin",
@@ -254,7 +271,7 @@ Lists all market pairs for the specified cryptocurrency with associated stats.
   - Enterprise
 
 ```ruby
-  CoinMarketPro::Api.cryptocurrency.market_pairs(symbol: ['BTC']).body
+  client.cryptocurrency.market_pairs(symbol: ['BTC']).body
 ```
 
 ##### [OHLCV (Historical)](https://pro.coinmarketcap.com/api/v1#operation/getV1CryptocurrencyOhlcvHistorical)
@@ -267,7 +284,7 @@ Return an interval of historic OHLCV (Open, High, Low, Close, Volume) market quo
   - Enterprise (Up to 5 years)
 
 ```ruby
-  CoinMarketPro::Api.cryptocurrency.ohlcv_historical(id: [1]).body
+  client.cryptocurrency.ohlcv_historical(id: [1]).body
 ```
 
 ##### [OHLCV (Latest)](https://pro.coinmarketcap.com/api/v1#operation/getV1CryptocurrencyOhlcvLatest)
@@ -283,7 +300,7 @@ Return an interval of historic OHLCV (Open, High, Low, Close, Volume) market quo
   - Enterprise
 
 ```ruby
-  CoinMarketPro::Api.cryptocurrency.ohlcv_historical(id: [1]).body
+  client.cryptocurrency.ohlcv_historical(id: [1]).body
 ```
 
 ##### [Market Quotes (Historical)](https://pro.coinmarketcap.com/api/v1#operation/getV1CryptocurrencyQuotesHistorical)
@@ -298,7 +315,7 @@ Returns an interval of historic market quotes for any cryptocurrency based on ti
   - Enterprise (Up to 5 years)
 
 ```ruby
-  CoinMarketPro::Api.cryptocurrency.quotes_historical(id: 1).body
+  client.cryptocurrency.quotes_historical(id: 1).body
 ```
 
 ##### [Market Quotes (Latest)](https://pro.coinmarketcap.com/api/v1#operation/getV1CryptocurrencyQuotesLatest)
@@ -309,15 +326,157 @@ Get the latest market quote for 1 or more cryptocurrencies. Use the "convert" op
 - Alias: `#market_quotes, #quotes_latest`
 - Available API Plans:
   - Basic
-  - Startup
   - Hobbyist
+  - Startup
   - Standard
   - Professional
   - Enterprise
 
 ```ruby
-  CoinMarketPro::Api.cryptocurrency.quotes(id: [1]).body
+  client.cryptocurrency.quotes(id: [1]).body
 ```
+
+#### [Exchange](https://pro.coinmarketcap.com/api/v1#tag/exchange)
+
+##### [Info/Metadata](https://pro.coinmarketcap.com/api/v1#operation/getV1ExchangeInfo)
+
+Returns all static metadata for one or more exchanges including logo and homepage URL.
+
+- Alias: `#market_quotes, #quotes_latest`
+- Available API Plans:
+  - Startup
+  - Standard
+  - Professional
+  - Enterprise
+
+```ruby
+  client.exchange.info(id: [1]).body
+```
+
+##### [Map](https://pro.coinmarketcap.com/api/v1#operation/getV1ExchangeMap)
+
+Returns a paginated list of all cryptocurrency exchanges by CoinMarketCap ID. We recommend using this convenience endpoint to lookup and utilize our unique exchange id across all endpoints as typical exchange identifiers may change over time.
+
+- Available API Plans:
+  - Startup
+  - Standard
+  - Professional
+  - Enterprise
+
+```ruby
+  client.exchange.map.body
+```
+
+##### [Listings (Historical)](https://pro.coinmarketcap.com/api/v1#operation/getV1ExchangeListingsHistorical)
+
+Get a paginated list of all cryptocurrency exchanges with historical market data for a given point in time.
+
+```ruby
+  client.exchange.listings_historical
+```
+
+##### [Listings (Latest)](https://pro.coinmarketcap.com/api/v1#operation/getV1ExchangeListingsLatest)
+
+Get a paginated list of all cryptocurrency exchanges with 24 hour volume. Additional market data fields will be available in the future.
+
+- Alias: `#listings_latest`
+- Available API Plans:
+  - Standard
+  - Professional
+  - Enterprise
+
+```ruby
+  client.exchange.listings
+```
+
+##### [Market Pairs](https://pro.coinmarketcap.com/api/v1#operation/getV1ExchangeMarketpairsLatest)
+
+Get a list of active market pairs for an exchange. Active means the market pair is open for trading.
+
+- Available API Plans:
+  - Standard
+  - Professional
+  - Enterprise
+
+```ruby
+  client.exchange.market_pairs(id: [1])
+```
+
+##### [Market Quotes (Historical)](https://pro.coinmarketcap.com/api/v1#operation/getV1ExchangeQuotesHistorical)
+
+Returns an interval of historic quotes for any exchange based on time and interval parameters.
+
+- Available API Plans:
+  - Standard (1 Month)
+  - Professional (12 Months)
+  - Enterprise (Up to 5 Years)
+
+```ruby
+  client.exchange.quotes_historical(id: [1])
+```
+
+##### [Market Quotes (Latest)](https://pro.coinmarketcap.com/api/v1#operation/getV1ExchangeQuotesLatest)
+
+Get the latest 24 hour volume quote for 1 or more exchanges. Additional market data fields will be available in the future.
+
+- Available API Plans:
+  - Standard
+  - Professional
+  - Enterprise
+
+```ruby
+  client.exchange.quotes(id: [1, 2])
+```
+
+#### [Global Metrics](https://pro.coinmarketcap.com/api/v1#tag/global-metrics)
+
+##### [Quotes (Historical)](https://pro.coinmarketcap.com/api/v1#operation/getV1GlobalmetricsQuotesHistorical)
+
+Get an interval of aggregate 24 hour volume and market cap data globally based on time and interval parameters.
+
+- Available API Plans:
+  - Standard (1 month)
+  - Professional (12 months)
+  - Enterprise (Up to 5 years)
+
+```ruby
+  client.global_metrics.quotes_historical
+```
+
+##### [Quotes (Latest)](https://pro.coinmarketcap.com/api/v1#operation/getV1GlobalmetricsQuotesLatest)
+
+Get the latest quote of aggregate market metrics. Use the "convert" option to return market values in multiple fiat and cryptocurrency conversions in the same call.
+
+- Available API Plans:
+  - Basic
+  - Hobbyist
+  - Startup
+  - Standard
+  - Professional
+  - Enterprise
+
+
+```ruby
+  client.global_metrics.quotes
+```
+
+#### [Tools](https://pro.coinmarketcap.com/api/v1#tag/tools)
+
+##### [Price conversion](https://pro.coinmarketcap.com/api/v1#operation/getV1ToolsPriceconversion)
+
+Convert an amount of one currency into up to 32 other cryptocurrency or fiat currencies at the same time using latest exchange rates. Optionally pass a historical timestamp to convert values based on historic averages.
+
+- Available API Plans:
+  - Basic
+  - Hobbyist
+  - Startup
+  - Standard
+  - Professional
+  - Enterprise
+
+  ```ruby
+    client.tools.price_conversion(amount: 10.43, id: [1])
+  ```
 
 ## Development
 

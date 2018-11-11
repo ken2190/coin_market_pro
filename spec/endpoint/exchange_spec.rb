@@ -48,7 +48,7 @@ RSpec.describe CoinMarketPro::Endpoint::Exchange do
     let(:endpoint) { uri + '/listings/historical' }
 
     before(:each) do
-      stub_request(:get, /#{endpoint}/).and_return(body: fixture('cryptocurrency/listings_historical.json'))
+      stub_request(:get, /#{endpoint}/).and_return(body: fixture('exchange/listings_historical.json'))
     end
 
     it 'returns successful results' do
@@ -67,7 +67,7 @@ RSpec.describe CoinMarketPro::Endpoint::Exchange do
     let(:endpoint) { uri + '/listings/latest' }
 
     before(:each) do
-      stub_request(:get, /#{endpoint}/).and_return(body: fixture('cryptocurrency/listings.json'))
+      stub_request(:get, /#{endpoint}/).and_return(body: fixture('exchange/listings.json'))
     end
 
     it 'returns successful results' do
@@ -97,7 +97,7 @@ RSpec.describe CoinMarketPro::Endpoint::Exchange do
     let(:endpoint) { uri + '/map' }
 
     before(:each) do
-      stub_request(:get, /#{endpoint}/).and_return(body: fixture('cryptocurrency/map.json'))
+      stub_request(:get, /#{endpoint}/).and_return(body: fixture('exchange/map.json'))
     end
 
     it 'returns successful results' do
@@ -116,7 +116,7 @@ RSpec.describe CoinMarketPro::Endpoint::Exchange do
     let(:endpoint) { uri + '/market-pairs/latest' }
 
     before(:each) do
-      stub_request(:get, /#{endpoint}/).and_return(body: fixture('cryptocurrency/market_pairs.json'))
+      stub_request(:get, /#{endpoint}/).and_return(body: fixture('exchange/market_pairs.json'))
     end
 
     it 'returns successful results' do
@@ -140,7 +140,7 @@ RSpec.describe CoinMarketPro::Endpoint::Exchange do
     let(:endpoint) { uri + '/quotes/historical' }
 
     before(:each) do
-      stub_request(:get, /#{endpoint}/).and_return(body: fixture('cryptocurrency/quotes_historical.json'))
+      stub_request(:get, /#{endpoint}/).and_return(body: fixture('exchange/quotes_historical.json'))
     end
 
     it 'returns successful results' do
@@ -176,7 +176,7 @@ RSpec.describe CoinMarketPro::Endpoint::Exchange do
     let(:endpoint) { uri + '/quotes/latest' }
 
     before(:each) do
-      stub_request(:get, /#{endpoint}/).and_return(body: fixture('cryptocurrency/quotes.json'))
+      stub_request(:get, /#{endpoint}/).and_return(body: fixture('exchange/quotes.json'))
     end
 
     it 'returns successful results' do

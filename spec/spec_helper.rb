@@ -18,6 +18,10 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.before(:each) do
+    allow(Logger).to receive(:new).and_return(double('Logger', debug: nil, error: nil, warn: nil))
+  end
 end
 
 # Return fixture relative to './spec/fixtures'

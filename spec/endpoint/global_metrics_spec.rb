@@ -12,7 +12,7 @@ RSpec.describe CoinMarketPro::Endpoint::GlobalMetrics do
     let(:endpoint) { uri + '/quotes/historical' }
 
     before(:each) do
-      stub_request(:get, /#{endpoint}/).and_return(body: fixture('cryptocurrency/quotes_historical.json'))
+      stub_request(:get, /#{endpoint}/).and_return(body: fixture('global_metrics/quotes_historical.json'))
     end
 
     it 'returns successful results' do
@@ -42,7 +42,7 @@ RSpec.describe CoinMarketPro::Endpoint::GlobalMetrics do
     let(:endpoint) { uri + '/quotes/latest' }
 
     before(:each) do
-      stub_request(:get, /#{endpoint}/).and_return(body: fixture('cryptocurrency/quotes.json'))
+      stub_request(:get, /#{endpoint}/).and_return(body: fixture('global_metrics/quotes.json'))
     end
 
     it 'returns successful results' do
