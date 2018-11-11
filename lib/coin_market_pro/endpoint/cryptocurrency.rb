@@ -20,9 +20,9 @@ module CoinMarketPro
       def info(**args)
         valid_params?(args)
         params = convert_params(args)
-        resp = client.get("#{ENDPOINT}/info", options: params.compact)
-        resp.body = resp.body.map { |_key, data| data }
-        resp
+        client.get("#{ENDPOINT}/info", options: params.compact).tap do |resp|
+          resp.body = resp.body.map { |_k, data| data }
+        end
       end
 
       alias metadata info
@@ -113,9 +113,9 @@ module CoinMarketPro
       def market_pairs(**args)
         valid_params?(args)
         params = convert_params(args)
-        resp = client.get("#{ENDPOINT}/market-pairs/latest", options: params.compact)
-        resp.body = [resp.body]
-        resp
+        client.get("#{ENDPOINT}/market-pairs/latest", options: params.compact).tap do |resp|
+          resp.body = [resp.body]
+        end
       end
 
       # Return an interval of historic OHLCV (Open, High, Low, Close, Volume) market quotes for a cryptocurrency.
@@ -147,9 +147,9 @@ module CoinMarketPro
       def ohlcv_historical(**args)
         valid_params?(args)
         params = convert_params(args)
-        resp = client.get("#{ENDPOINT}/ohlcv/historical", options: params.compact)
-        resp.body = [resp.body]
-        resp
+        client.get("#{ENDPOINT}/ohlcv/historical", options: params.compact).tap do |resp|
+          resp.body = [resp.body]
+        end
       end
 
       # Return the latest OHLCV (Open, High, Low, Close, Volume) market values for one or
@@ -168,9 +168,9 @@ module CoinMarketPro
       def ohlcv(**args)
         valid_params?(args)
         params = convert_params(args)
-        resp = client.get("#{ENDPOINT}/ohlcv/latest", options: params.compact)
-        resp.body = resp.body.map { |_key, data| data }
-        resp
+        client.get("#{ENDPOINT}/ohlcv/latest", options: params.compact).tap do |resp|
+          resp.body = resp.body.map { |_key, data| data }
+        end
       end
 
       alias ohlcv_latest ohlcv
@@ -203,9 +203,9 @@ module CoinMarketPro
       def quotes_historical(**args)
         valid_params?(args)
         params = convert_params(args)
-        resp = client.get("#{ENDPOINT}/quotes/historical", options: params.compact)
-        resp.body = [resp.body]
-        resp
+        client.get("#{ENDPOINT}/quotes/historical", options: params.compact).tap do |resp|
+          resp.body = [resp.body]
+        end
       end
 
       alias market_quotes_historical quotes_historical
@@ -223,9 +223,9 @@ module CoinMarketPro
       def quotes(**args)
         valid_params?(args)
         params = convert_params(args)
-        resp = client.get("#{ENDPOINT}/quotes/latest", options: params.compact)
-        resp.body = resp.body.map { |_key, data| data }
-        resp
+        client.get("#{ENDPOINT}/quotes/latest", options: params.compact).tap do |resp|
+          resp.body = resp.body.map { |_key, data| data }
+        end
       end
 
       alias market_quotes quotes

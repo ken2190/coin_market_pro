@@ -1,0 +1,69 @@
+{
+  "data": {
+    "id": 270,
+    "name": "Binance",
+    "slug": "binance",
+    "num_market_pairs": 374,
+    "market_pairs": [
+      {
+        "market_pair": "BTC/USDT",
+        "market_pair_base": {
+          "currency_id": 1,
+          "currency_symbol": "BTC",
+          "currency_type": "cryptocurrency"
+        },
+        "market_pair_quote": {
+          "currency_id": 825,
+          "currency_symbol": "USDT",
+          "currency_type": "cryptocurrency"
+        },
+        "quote": {
+          "exchange_reported": {
+            "price": 8120.01,
+            "volume_24h_base": 37134.4325864832,
+            "volume_24h_quote": 301531963.94657,
+            "last_updated": "2018-07-31T01:55:25.000Z"
+          },
+          "USD": {
+            "price": 8117.95361895458,
+            "volume_24h": 301455601.403267,
+            "last_updated": "2018-07-31T01:55:25.000Z"
+          }
+        }
+      },
+      {
+        "market_pair": "EOS/USDT",
+        "market_pair_base": {
+          "currency_id": 1765,
+          "currency_symbol": "EOS",
+          "currency_type": "cryptocurrency"
+        },
+        "market_pair_quote": {
+          "currency_id": 825,
+          "currency_symbol": "USDT",
+          "currency_type": "cryptocurrency"
+        },
+        "quote": {
+          "exchange_reported": {
+            "price": 7.6797,
+            "volume_24h_base": 12296926.4861668,
+            "volume_24h_quote": 94436706.335815,
+            "last_updated": "2018-07-31T01:55:25.000Z"
+          },
+          "USD": {
+            "price": 7.67775512683919,
+            "volume_24h": 94412790.3735316,
+            "last_updated": "2018-07-31T01:55:25.000Z"
+          }
+        }
+      }
+    ]
+  },
+  "status": {
+    "timestamp": "2018-06-02T22:51:28.209Z",
+    "error_code": 0,
+    "error_message": "",
+    "elapsed": 10,
+    "credit_count": 1
+  }
+}

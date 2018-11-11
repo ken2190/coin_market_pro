@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Binance",
+      "slug": "Binance",
+      "cmc_rank": 5,
+      "num_market_pairs": 500,
+      "timestamp": "2018-06-02T00:00:00.000Z",
+      "quote": {
+        "USD": {
+          "timestamp": "2018-06-02T00:00:00.000Z",
+          "volume_24h": 1418940000,
+          "volume_7d": 1418940000,
+          "volume_30d": 1418940000,
+          "percent_change_volume_24h": 0.03,
+          "percent_change_volume_7d": 5.75,
+          "percent_change_volume_30d": -19.64
+        }
+      }
+    }
+  ],
+  "status": {
+    "timestamp": "2018-06-02T22:51:28.209Z",
+    "error_code": 0,
+    "error_message": "",
+    "elapsed": 10,
+    "credit_count": 1
+  }
+}

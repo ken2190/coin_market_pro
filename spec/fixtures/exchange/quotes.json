@@ -1,0 +1,36 @@
+{
+  "data": {
+    "2": {
+      "id": 2,
+      "name": "WEX",
+      "slug": "wex",
+      "num_market_pairs": 34,
+      "last_updated": "2018-08-09T20:04:00.000Z",
+      "quote": {
+        "BTC": {
+          "volume_24h": 394.4211891821542,
+          "last_updated": "2018-08-09T20:07:26.000Z"
+        },
+        "EUR": {
+          "volume_24h": 2223659.4869975154,
+          "last_updated": "2018-08-09T20:05:00.000Z"
+        },
+        "LTC": {
+          "volume_24h": 40423.00688444377,
+          "last_updated": "2018-08-09T20:07:09.000Z"
+        },
+        "USD": {
+          "volume_24h": 2563718.84587029,
+          "last_updated": "2018-08-09T20:07:09.000Z"
+        }
+      }
+    }
+  },
+  "status": {
+    "timestamp": "2018-06-02T22:51:28.209Z",
+    "error_code": 0,
+    "error_message": "",
+    "elapsed": 10,
+    "credit_count": 1
+  }
+}

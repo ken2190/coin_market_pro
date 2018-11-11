@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Binance",
+      "slug": "binance",
+      "is_active": true,
+      "first_historical_data": "2018-04-26T00:45:00.000Z",
+      "last_historical_data": "2018-06-02T22:51:28.209Z"
+    }
+  ],
+  "status": {
+    "timestamp": "2018-06-02T22:51:28.209Z",
+    "error_code": 0,
+    "error_message": "",
+    "elapsed": 10,
+    "credit_count": 1
+  }
+}

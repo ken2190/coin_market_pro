@@ -1,0 +1,32 @@
+{
+  "data": {
+    "270": {
+      "urls": {
+        "website": [
+          "https://www.binance.com/"
+        ],
+        "twitter": [
+          "https://twitter.com/binance"
+        ],
+        "blog": [],
+        "chat": [
+          "https://t.me/binanceexchange"
+        ],
+        "fee": [
+          "https://www.binance.com/fees.html"
+        ]
+      },
+      "logo": "https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png",
+      "id": 270,
+      "name": "Binance",
+      "slug": "binance"
+    }
+  },
+  "status": {
+    "timestamp": "2018-06-02T22:51:28.209Z",
+    "error_code": 0,
+    "error_message": "",
+    "elapsed": 10,
+    "credit_count": 1
+  }
+}
