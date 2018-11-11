@@ -1,15 +1,17 @@
 # CoinMarketPro
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/coin_market_pro`. To experiment with that code, run `bin/console` for an interactive prompt.
+* Migrated to https://gitlab.com/snogrammer/coin_market_pro
 
-TODO: Delete this and the text above, and describe your gem
+Ruby wrapper for [CoinMarketCap Pro v1 API](https://pro.coinmarketcap.com/api/v1#).
+
+The CoinMarketCap Professional API is a suite of high-performance RESTful JSON endpoints that are specifically designed to meet the mission-critical demands of application developers, data scientists, and enterprise business platforms.
 
 ## Available Endpoints:
 
-* [Cryptocurrency](#### Cryptocurrency)
-* [Exchange](#### Exchange)
-* [Global Metrics](#### Global Metrics)
-* [Tools](#### Global Metrics)
+* [Cryptocurrency](####Cryptocurrency)
+* [Exchange](####Exchange)
+* [Global Metrics](####Global Metrics)
+* [Tools](####Global Metrics)
 
 ## Installation
 
