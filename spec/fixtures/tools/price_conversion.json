@@ -1,0 +1,30 @@
+{
+  "data": {
+    "symbol": "BTC",
+    "id": "1",
+    "name": "Bitcoin",
+    "amount": 50,
+    "last_updated": "2018-06-06T08:04:36.000Z",
+    "quote": {
+      "GBP": {
+        "price": 284656.08465608465,
+        "last_updated": "2018-06-06T06:00:00.000Z"
+      },
+      "LTC": {
+        "price": 3128.7279766396537,
+        "last_updated": "2018-06-06T08:04:02.000Z"
+      },
+      "USD": {
+        "price": 381442,
+        "last_updated": "2018-06-06T08:06:51.968Z"
+      }
+    }
+  },
+  "status": {
+    "timestamp": "2018-06-02T22:51:28.209Z",
+    "error_code": 0,
+    "error_message": "",
+    "elapsed": 10,
+    "credit_count": 1
+  }
+}
